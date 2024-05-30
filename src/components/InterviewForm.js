@@ -168,22 +168,25 @@ const InterviewForm = () => {
                         </div>
                     </div>
                 )}
-                {formData.signatureCorrect === 'Não' && (
+                {formData.signatureCorrect === 'Não' ? (
                     <div className="form-group">
                         <label htmlFor="realStartDate">Qual a Real Data de Entrada?</label>
                         <input type="date" id="realStartDate" name="realStartDate" value={formData.realStartDate} onChange={handleChange} />
                         <label htmlFor="realEndDate">Qual a Real Data de Saída (caso tenha saído)?</label>
                         <input type="date" id="realEndDate" name="realEndDate" value={formData.realEndDate} onChange={handleChange} />
                     </div>
+                ) : (
+                    <>
+                        <div className="form-group">
+                            <label htmlFor="startDate">Data de Entrada:</label>
+                            <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} required />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="endDate">Data de Saída:</label>
+                            <input type="date" id="endDate" name="endDate" value={formData.endDate} onChange={handleChange} />
+                        </div>
+                    </>
                 )}
-                <div className="form-group">
-                    <label htmlFor="startDate">Data de Entrada:</label>
-                    <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="endDate">Data de Saída:</label>
-                    <input type="date" id="endDate" name="endDate" value={formData.endDate} onChange={handleChange} />
-                </div>
                 <div className="form-group">
                     <label>Ocorreu o término do contrato?</label>
                     <div className="checkbox-group">
